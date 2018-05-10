@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>  
+<?xml version="1.0" encoding="UTF-8"?>
+<!--application.xml ：对应的是系统级别的配置，作用范围是系统上下文  -->  
     <beans xmlns="http://www.springframework.org/schema/beans"  
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
             xmlns:aop="http://www.springframework.org/schema/aop"  
@@ -12,10 +13,16 @@
                 http://www.springframework.org/schema/context 
                 http://www.springframework.org/schema/context/spring-context.xsd">  
                 
+    <!--系统扫描那些包下的注解文件  -->            
     <context:component-scan base-package="cn.app.service"/> 
-    <context:component-scan base-package="cn.app.dao"/> 
+    <context:component-scan base-package="cn.app.dao"/>
+    
+    <!--让系统识别相应的注解  --> 
     <context:annotation-config />
+    
+    <!-- 加载db.properties文件中的内容 中的key要有一定的规则 -->
    	<context:property-placeholder location="classpath:database.properties"/>
+   	
     <!-- JNDI获取数据源(使用dbcp连接池) -->  
      <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" scope="singleton">
 		    <property name="driverClassName" value="${driver}"/>
@@ -43,17 +50,22 @@
  	</bean>
    
  	<!-- 配置mybatis SqlSessionFactoryBean -->
+ 	<!-- 配置Mybatis的文件 ，mapperLocations配置**Mapper.xml文件位置，configLocation配置mybatis-config文件位置-->
  	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
  		<property name="dataSource" ref="dataSource"/>
  		<property name="configLocation" value="classpath:mybatis-config.xml"/>
  	</bean>
  	
+ 	<!-- 自动完成创建代理织入切面的工作 -->
  	<aop:aspectj-autoproxy/>
       <aop:config proxy-target-class="true">
       	<aop:pointcut expression="execution(* *cn.app.service..*(..))" id="transService"/>
       	<aop:advisor advice-ref="myAdvice" pointcut-ref="transService"/>
       </aop:config>
       
+      
+    <!-- 通知 -->
+    <!-- transaction-manager 表示把这通知给谁  transaction-manager就是上面的事务管理器的id-->  
  	<tx:advice id="myAdvice" transaction-manager="txManager">  
     	<tx:attributes>  
 	        <tx:method name="app*"  propagation="REQUIRED" rollback-for="Exception"  />
@@ -61,6 +73,9 @@
     	</tx:attributes>  
  	</tx:advice>
     
+    <!-- mapper接口代理实现，自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，
+    	这样就不用一个一个手动配置Mpper的映射了，
+    	只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
     	<property name="basePackage" value="cn.app.dao"/>
     </bean>       
