@@ -22,6 +22,11 @@ public class UserController {
 		return "login";
 	}
 	
+	@RequestMapping(value="/dev")
+	public String dev(){
+		return "dev/index";
+	}
+	
 	@RequestMapping(value="/dologin")
 	public String dologin(@RequestParam("userName")String userName,
 						  @RequestParam("password")String password,
