@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.app.dao.UserMapper;
-import cn.app.pojo.User;
+
+import cn.app.pojo.DevUser;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -15,9 +16,9 @@ public class UserServiceImpl implements UserService{
 	public UserMapper userMapper;
 	
 	@Override
-	public User userLogin(String userName, String password) {
+	public DevUser userLogin(String userName, String password) {
 		// TODO Auto-generated method stub
-		User user=userMapper.login(userName, password);
+		DevUser user=userMapper.login(userName, password);
 		
 		return user;
 	}

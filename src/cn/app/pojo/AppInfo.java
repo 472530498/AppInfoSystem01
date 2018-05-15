@@ -2,7 +2,7 @@ package cn.app.pojo;
 
 import java.util.Date;
 
-public class app_info {
+public class AppInfo {
 	private Integer id;
 	private String softwareName;
 	private String APKName;
@@ -175,11 +175,11 @@ public class app_info {
 	public void setVersionId(Integer versionId) {
 		this.versionId = versionId;
 	}
-	public app_info() {
+	public AppInfo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public app_info(Integer id, String softwareName, String aPKName,
+	public AppInfo(Integer id, String softwareName, String aPKName,
 			String supportROM, String interfaceLanguage, Double softwareSize,
 			Date updateDate, Integer devId, String appInfo, Integer status,
 			Date onSaleDate, Date offSaleDate, Integer flatformId,

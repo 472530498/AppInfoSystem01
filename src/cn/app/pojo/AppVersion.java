@@ -2,7 +2,7 @@ package cn.app.pojo;
 
 import java.util.Date;
 
-public class app_version {
+public class AppVersion {
 	private Integer id;
 	private Integer appId;
 	private String versionNo;
@@ -96,11 +96,11 @@ public class app_version {
 	public void setApkFileName(String apkFileName) {
 		this.apkFileName = apkFileName;
 	}
-	public app_version() {
+	public AppVersion() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public app_version(Integer id, Integer appId, String versionNo,
+	public AppVersion(Integer id, Integer appId, String versionNo,
 			String versionInfo, Integer publishStatus, String downloadLink,
 			Double versionSize, Integer createdBy, Date creationDate,
 			Integer modifyBy, Date modifyDate, String apkLocPath,

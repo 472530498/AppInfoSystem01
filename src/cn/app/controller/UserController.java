@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import cn.app.pojo.User;
+import cn.app.pojo.DevUser;
+
 import cn.app.service.UserService;
 
 @Controller
@@ -26,18 +27,22 @@ public class UserController {
 	public String hlogin(){
 		return "hlogin";
 	}
+//	@RequestMapping(value="/index")
+//	public String index(){
+//		return "/dev/index";
+//	}
 	
 	@RequestMapping(value="/dologin",method=RequestMethod.POST)
-	public String dologin(@RequestParam("userName")String userName,
-						  @RequestParam("password")String password,
+	public String dologin(@RequestParam("devCode")String devCode,
+						  @RequestParam("devPassword")String devPassword,
 						  Model model){
-		System.out.println(userName+password);
-		User user=userService.userLogin(userName, password);
-		System.out.println(user.getUserName()+user.getPassword());
 		
-		if(user!=null){
-			model.addAttribute("user", user);
-		return "dev/index";
+		DevUser devuser=userService.userLogin(devCode,devPassword);
+		System.out.println(devuser.getDevName()+devuser.getDevPassword());
+		
+		if(devuser!=null){
+			model.addAttribute("devuser", devuser);
+		return "/dev/index";
 		}
 		else return "403";		
 		

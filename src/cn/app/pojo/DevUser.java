@@ -2,7 +2,7 @@ package cn.app.pojo;
 
 import java.util.Date;
 
-public class dev_user {
+public class DevUser {
 	private Integer id;
 	private String devCode;
 	private String devName;
@@ -74,11 +74,11 @@ public class dev_user {
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-	public dev_user() {
+	public DevUser() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public dev_user(Integer id, String devCode, String devName,
+	public DevUser(Integer id, String devCode, String devName,
 			String devPassword, String devEmail, String devInfo,
 			Integer createdBy, Date creationDate, Integer modifyBy,
 			Date modifyDate) {

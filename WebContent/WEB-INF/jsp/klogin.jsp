@@ -38,14 +38,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form action="${pageContext.request.contextPath}/user/dologin" method="post">
               <h1>开发者平台</h1>
               <div>
-                <input type="text" class="form-control" name="userName"placeholder="请输入你的用户名。。" required="" />
+                <input type="text" class="form-control" name="devCode"placeholder="请输入你的用户名。。" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" name="password"placeholder="请输入你的密码。。" required="" />
+                <input type="password" class="form-control" name="devPassword"placeholder="请输入你的密码。。" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">登录</a>
-                <a class="btn btn-default submit" href="index.html">重填</a>
+                <button type="submit" class="btn btn-default">登录</button>
+                 <button type="reset" class="btn btn-default">重填</button>
               </div>
 
               <div class="clearfix"></div>
