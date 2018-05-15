@@ -2,10 +2,11 @@ package cn.app.service;
 
 import org.springframework.stereotype.Service;
 
-import cn.app.pojo.User;
+
+import cn.app.pojo.DevUser;
 
 public interface UserService {
 	
-	public User userLogin(String userName,String password);
+	public DevUser userLogin(String userName,String password);
 
 }
