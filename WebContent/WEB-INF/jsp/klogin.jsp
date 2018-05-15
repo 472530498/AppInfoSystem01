@@ -21,9 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!-- Font Awesome -->
     <link href="<%=request.getContextPath() %>/statics/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="<%=request.getContextPath() %>/statics/css/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="<%=request.getContextPath() %>/statics/css/animate.min.css" rel="stylesheet">
+    <link href="<%=request.getContextPath() %>/statics/css/nprogress.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="<%=request.getContextPath() %>/statics/css/custom.min.css" rel="stylesheet">
@@ -37,13 +35,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form action="${pageContext.request.contextPath}/user/dologin" method="post">
               <h1>开发者平台</h1>
               <div>
-                <input type="text" class="form-control" placeholder="请输入你的用户名。。" required="" />
+                <input type="text" class="form-control" name="userName"placeholder="请输入你的用户名。。" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="请输入你的密码。。" required="" />
+                <input type="password" class="form-control" name="password"placeholder="请输入你的密码。。" required="" />
               </div>
               <div>
                 <a class="btn btn-default submit" href="index.html">登录</a>

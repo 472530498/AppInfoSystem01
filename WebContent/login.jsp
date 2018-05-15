@@ -14,8 +14,8 @@
     <base href="<%=basePath%>">
     
     <title>登录页面</title>
-    <link href="<%=basePath %>css/login.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript"  src="<%=basePath %>js/register.js"></script>
+    <link href="<%=basePath %>/statics/css/login.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript"  src="<%=basePath %>/statics/js/register.js"></script>
     <script language="javascript" type="text/javascript">
 function checkData() {
 	var userid = window.form1.sUserId.value;
