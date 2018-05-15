@@ -41,7 +41,7 @@
               </div>
               <div class="profile_info">
                 <span>欢迎,</span>
-                <h2>${user.userName}</h2>
+                <h2>{名称}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
