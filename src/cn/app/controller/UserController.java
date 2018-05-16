@@ -27,10 +27,7 @@ public class UserController {
 	public String hlogin(){
 		return "hlogin";
 	}
-//	@RequestMapping(value="/index")
-//	public String index(){
-//		return "/dev/index";
-//	}
+	
 	
 	@RequestMapping(value="/dologin",method=RequestMethod.POST)
 	public String dologin(@RequestParam("devCode")String devCode,
