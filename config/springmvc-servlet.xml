@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- spring-servlet.xml：对应的是 controller 级别的配置，作用范围是控制层上下文 -->
+
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -12,8 +14,10 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
         
+   <!--系统扫描那些包下的注解文件  -->
    <context:component-scan base-package="cn.app.controller"/>
    
+   <!--下面的配置就默认加载处理器映射和处理器适配器 。它还默认加载了其他配置-->
    <mvc:annotation-driven>
    		<mvc:message-converters>
    			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -39,9 +43,19 @@
    		</mvc:message-converters>
    </mvc:annotation-driven>
    
+   <!--因为配置系统拦截所有的/请求，通过此来让系统访问静态资源  -->
    <mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>
     
+    
+    
+    
+    
     <!-- 配置多视图解析器 -->
+    <!-- InternalResourceViewResolver ：用于支持Servlet、JSP视图解析；
+          viewClass ：JstlView表示JSP模板页面需要使用JSTL标签库，classpath中必须包含jstl的相关jar包；
+          prefix 和 suffix ：查找视图页面的前缀和后缀（前缀[逻辑视图名]后缀），比如传进来的逻辑视图名为hello，
+                          则该该jsp视图页面应该存放在“WEB-INF/jsp/hello.jsp”   
+    -->
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="favorParameter" value="true"/> 
         <property name="defaultContentType" value="text/html" /> 
