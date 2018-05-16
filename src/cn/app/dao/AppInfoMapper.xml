@@ -3,6 +3,6 @@
 <mapper namespace="cn.app.dao.AppInfoMapper">
        <select id="findAllApp" resultType="AppInfo">
         
-                select * from app_info LIMIT #{0},#{1}
+                select * from app_info LIMIT #{currentPageNo},#{pageSize}
        </select>
 </mapper>

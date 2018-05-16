@@ -101,7 +101,7 @@
 										class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a
-											href="${pageContext.request.contextPath}/selectappInfo?offset=0&&line=3">查看APP列表信息</a></li>
+											href="${pageContext.request.contextPath}/selectappInfo">查看APP列表信息</a></li>
 										<li><a href="addmessage.jsp">增加APP基础信息</a></li>
 										<li><a href="index3.html">修改APP基础信息</a></li>
 										<li><a href="index3.html">新增APP版本信息</a></li>
@@ -210,48 +210,7 @@
 			<!-- page content table-andy-->
 			<div class="right_col" role="main">
 
-             <table>
-				
-				<tr>
-				    <td>AppID</td>
-				     <td>App名字</td>
-				      <td>APK名字</td>
-				       <td>支持版本</td>
-				        <td>语言</td>
-				         <td>文件大小</td>
-				</tr>
-				<c:forEach items="${appinfolist}" var="appinfo" varStatus="vs">
-					<tr>
-						<td>
-							 <c:out value="${appinfo.id}"/>
-						</td>
-						<td>
-							 <c:out value="${appinfo.softwareName}"/>
-						</td>
-						<td>
-							 <c:out value="${appinfo.APKName}"/>
-						</td>
-						<td>
-							 <c:out value="${appinfo.supportROM}"/>
-						</td>
-						<td>
-							 <c:out value="${appinfo.interfaceLanguage}"/>
-						</td>
-						<td>
-							 <c:out value="${appinfo.softwareSize}"/>
-						</td>
-
-					</tr>
-				</c:forEach>
-				</table>
-		<a href="">首页</a>
-		<a href="">上一页</a>
-		<!-- <button id="btnext" onclick="next()">下一页</button> -->
-		<a
-											href="${pageContext.request.contextPath}/selectappInfo?offset=3&&line=3">下一页</a></li>
-										<li>
-		<a href="">尾页</a>
-		<text>现在是第 0 页</text>
+             <%@include file="userlist.jsp" %>
 
 			</div>
 		</div>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import cn.app.dao.AppInfoMapper;
 import cn.app.pojo.AppInfo;
+import cn.app.utils.PageSupport;
 
 @Service
 public class AppInfoServiceImpl implements AppInfoService{
@@ -17,12 +18,14 @@ public class AppInfoServiceImpl implements AppInfoService{
 	 public AppInfoMapper appInfoMapper ;
 	
 	@Override
-	public List<AppInfo> getAllApp(int Offset,int line) {
+	public PageSupport<AppInfo> getAllApp(Integer currentPageNo,Integer pageSize) {
 		// TODO Auto-generated method stub
 		
-		List<AppInfo> list = appInfoMapper.findAllApp(Offset,line);
+		PageSupport<AppInfo> pageList=new PageSupport<AppInfo>();
+		List<AppInfo>list = appInfoMapper.findAllApp((currentPageNo-1)*pageSize,pageSize);
+		pageList.setList(list);
 		
-		return list;
+		return pageList;
 	}
 
 }
