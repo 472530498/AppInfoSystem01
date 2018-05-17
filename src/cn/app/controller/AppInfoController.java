@@ -31,7 +31,7 @@ public class AppInfoController {
 		pagesupport.setTotalCount(11);
 
 		model.addAttribute("pageSupport", pagesupport);
-		return "/dev/index";
+		return "/dev/appinfo";
 	}
 	@RequestMapping(value = "/selectappInfo", method = RequestMethod.POST)
 	public String aselectappInfo(
@@ -44,7 +44,7 @@ public class AppInfoController {
 		pagesupport.setTotalCount(11);
 
 		model.addAttribute("pageSupport", pagesupport);
-		return "/dev/index";
+		return "/dev/appinfo";
 	}
 
 }
