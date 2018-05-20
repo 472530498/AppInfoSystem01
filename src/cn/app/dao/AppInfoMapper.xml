@@ -5,4 +5,8 @@
         
                 select * from app_info LIMIT #{currentPageNo},#{pageSize}
        </select>
+       <select id="deleteAppById" resultType="java.lang.Integer">
+        
+               DELETE FROM app_info where id = #{id}
+       </select>
 </mapper>

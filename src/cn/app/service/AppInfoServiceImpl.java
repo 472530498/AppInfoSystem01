@@ -28,4 +28,9 @@ public class AppInfoServiceImpl implements AppInfoService{
 		return pageList;
 	}
 
+	@Override
+	public Integer deleteAppById(Integer id) {		
+		return appInfoMapper.deleteAppById(id);
+	}
+
 }

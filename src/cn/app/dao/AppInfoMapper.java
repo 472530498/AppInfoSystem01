@@ -11,4 +11,6 @@ public interface AppInfoMapper {
 
 	public List<AppInfo> findAllApp(@Param("currentPageNo") Integer currentPageNo, @Param("pageSize") Integer pageSize);
 
+	public Integer deleteAppById(@Param("id") Integer id);
+
 }

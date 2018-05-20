@@ -9,4 +9,8 @@ public interface AppInfoService {
 	
 	public PageSupport<AppInfo> getAllApp(Integer currentPageNo,Integer pageSize);
 
+	public Integer deleteAppById(Integer id);
+
+
+
 }

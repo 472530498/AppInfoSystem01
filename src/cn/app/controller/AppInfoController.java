@@ -46,5 +46,31 @@ public class AppInfoController {
 		model.addAttribute("pageSupport", pagesupport);
 		return "/dev/appinfo";
 	}
+	
+	
+	@RequestMapping(value = "/deleteappInfo", method = RequestMethod.POST)
+	public String deleteappInfo(
+			@RequestParam(value = "currentPageNo", required = false) Integer currentPageNo,
+			@RequestParam(value = "pageSize", required = false) Integer pageSize,
+			@RequestParam(value = "id", required = true) Integer id,
+			Model model) {
+			try{
+				PageSupport pagesupport=new PageSupport<AppInfo>();
+				appInfoService.deleteAppById(id);
+				pagesupport= appInfoService.getAllApp(currentPageNo, pageSize);
+				pagesupport.setPageSize(2);
+				pagesupport.setCurrentPageNo(1);
+				pagesupport.setTotalCount(11);
+				model.addAttribute("pageSupport", pagesupport);
+			}catch(Exception e){
+				return "/jsp/403.jsp";
+			}
+		
+			
+		
+		
 
+		
+		return "/dev/appinfo";
+	}
 }
