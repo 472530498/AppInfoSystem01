@@ -1,6 +1,7 @@
 package cn.app.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,13 +39,13 @@ public class UserController {
     //开发用户登陆Action
 	@RequestMapping(value = "/dologin", method = RequestMethod.POST)
 	public String dologin(@RequestParam("devCode") String devCode, @RequestParam("devPassword") String devPassword,
-			Model model) {
+			HttpSession session) {
 
 		DevUser devuser = userService.userLogin(devCode, devPassword);
 		System.out.println(devuser.getDevName() + devuser.getDevPassword());
 
 		if (devuser != null) {
-			model.addAttribute("devuser", devuser);
+			session.setAttribute("devuser", devuser);
 			return "/dev/index";  //用户存在跳转到主页面
 		} else
 			return "403";        //用户不存在
@@ -56,12 +57,12 @@ public class UserController {
 	//管理员登陆Action
 	@RequestMapping(value = "/adminlogin",method=RequestMethod.POST)
 	public String adminlogin(@RequestParam("userCode") String userCode, @RequestParam("userPassword") String userPassword,
-			Model model){
+			HttpSession session){
 		System.out.println(userCode+"null");
 		BackendUser admin = userService.adminLogin(userCode, userPassword);
 		
 		if(admin != null){
-			model.addAttribute("admin", admin);
+			session.setAttribute("admin", admin);
 			return "/dev/index";   //管理登陆成功，跳转到管理员页面
 			
 		}else

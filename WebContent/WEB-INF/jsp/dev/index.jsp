@@ -11,6 +11,7 @@
 
 <%@include file="../common/js.jsp" %>
 
+
 <script language="javascript" type="text/javascript"></script>
 </head>
 <body class="nav-md">
@@ -34,7 +35,29 @@
 	<%@include file="../common/footer.jsp" %>
 	
 
+<!-- jQuery -->
+	<script
+		src="${pageContext.request.contextPath }/statics/js/jquery.min.js"></script>
+	<!-- Bootstrap -->
+	<script
+		src="${pageContext.request.contextPath }/statics/js/bootstrap.min.js"></script>
+	<!-- FastClick -->
+	<script
+		src="${pageContext.request.contextPath }/statics/js/fastclick.js"></script>
+	<!-- NProgress -->
+	<script
+		src="${pageContext.request.contextPath }/statics/js/nprogress.js"></script>
 
+	<!-- bootstrap-daterangepicker -->
+	<script
+		src="${pageContext.request.contextPath }/statics/js/moment/moment.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath }/statics/js/datepicker/daterangepicker.js"></script>
+
+	<!-- Custom Theme Scripts -->
+	<script
+		src="${pageContext.request.contextPath }/statics/js/custom.min.js"></script>
+	
 	
 	
 	

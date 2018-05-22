@@ -15,4 +15,6 @@ public interface AppInfoMapper {
 	
 	public Integer findAppNum(@Param("softwareName")String softwareName,@Param("interfaceLanguage")String interfaceLanguage);
 
+	public void setAppStatus(@Param("id") Integer id,@Param("status") Integer status);
+
 }

@@ -34,12 +34,18 @@ public class AppInfoServiceImpl implements AppInfoService{
 	}
 
 	@Override
+
 	public Integer getAppNum(String softwareName,String interfaceLanguage) {
 		// TODO Auto-generated method stub
 		Integer num = appInfoMapper.findAppNum(softwareName,interfaceLanguage);
 		
 		
 		return num;
+	}
+	public void setAppStatus(String softwareName,String interfaceLanguage,Integer id, Integer status) {
+		// TODO Auto-generated method stub
+		appInfoMapper.setAppStatus(id,status);
+
 	}
 
 }
