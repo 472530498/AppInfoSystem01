@@ -22,7 +22,7 @@
 			 <input	type="hidden" name="pageSize" value="5" /> 
   		 <input value="查 询"	type="submit" id="searchbutton">
 		</form>
-	</div>
+	</div>  
 	<!--用户-->
 	<table class="providerTable" cellpadding="0" cellspacing="0">
 		<tr class="firstTr">
