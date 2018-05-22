@@ -43,9 +43,9 @@
 				<td><span>${appinfo.interfaceLanguage}</span></td>
 				<td><span>${appinfo.softwareSize}</span></td>
 				<td>
-				<span><a class="viewUser"   id=${appinfo.id } softwareName=${appinfo.softwareName }><img src="${pageContext.request.contextPath }/statics/images/read.png" alt="查看" title="查看"/></a></span>
-				<span><a class="modifyUser" id=${appinfo.id } softwareName=${appinfo.softwareName }><img src="${pageContext.request.contextPath }/statics/images/xiugai.png" alt="修改" title="修改"/></a></span>
-				<span><a class="deleteUser" id=${appinfo.id } softwareName=${appinfo.softwareName }><img src="${pageContext.request.contextPath }/statics/images/schu.png" alt="删除" title="删除"/></a></span>
+				<span><a class="viewUser"   href="javascript:;" id=${appinfo.id } softwareName=${appinfo.softwareName }><img src="${pageContext.request.contextPath }/statics/images/read.png" alt="查看" title="查看"/></a></span>
+				<span><a class="modifyUser"href="javascript:;"  id=${appinfo.id } softwareName=${appinfo.softwareName }><img src="${pageContext.request.contextPath }/statics/images/xiugai.png" alt="修改" title="修改"/></a></span>
+				<span><a class="deleteUser" href="${pageContext.request.contextPath }/deleteappInfo/${appinfo.id };" id=${appinfo.id } softwareName=${appinfo.softwareName }><img src="${pageContext.request.contextPath }/statics/images/schu.png" alt="删除" title="删除"/></a></span>
 				</td>
 			</tr>
 			
