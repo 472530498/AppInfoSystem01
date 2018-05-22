@@ -18,11 +18,11 @@ public class AppInfoServiceImpl implements AppInfoService{
 	 public AppInfoMapper appInfoMapper ;
 	
 	@Override
-	public PageSupport<AppInfo> getAllApp(Integer currentPageNo,Integer pageSize) {
+	public PageSupport<AppInfo> getAllApp(String softwareName,String interfaceLanguage,Integer currentPageNo,Integer pageSize) {
 		// TODO Auto-generated method stub
 		
 		PageSupport<AppInfo> pageList=new PageSupport<AppInfo>();
-		List<AppInfo>list = appInfoMapper.findAllApp((currentPageNo-1)*pageSize,pageSize);
+		List<AppInfo>list = appInfoMapper.findAllApp(softwareName,interfaceLanguage,(currentPageNo-1)*pageSize,pageSize);
 		pageList.setList(list);
 		
 		return pageList;
@@ -31,6 +31,15 @@ public class AppInfoServiceImpl implements AppInfoService{
 	@Override
 	public Integer deleteAppById(Integer id) {		
 		return appInfoMapper.deleteAppById(id);
+	}
+
+	@Override
+	public Integer getAppNum(String softwareName,String interfaceLanguage) {
+		// TODO Auto-generated method stub
+		Integer num = appInfoMapper.findAppNum(softwareName,interfaceLanguage);
+		
+		
+		return num;
 	}
 
 }

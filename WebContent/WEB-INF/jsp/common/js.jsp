@@ -6,10 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-<!-- Bootstrap -->
-<link
-	href="${pageContext.request.contextPath }/statics/css/bootstrap.min.css"
-	rel="stylesheet">
 <!-- Font Awesome -->
 <link
 	href="${pageContext.request.contextPath }/statics/css/font-awesome.min.css"

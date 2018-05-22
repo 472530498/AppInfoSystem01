@@ -3,7 +3,28 @@
 <mapper namespace="cn.app.dao.AppInfoMapper">
        <select id="findAllApp" resultType="AppInfo">
         
-                select * from app_info LIMIT #{currentPageNo},#{pageSize}
+                SELECT * FROM app_info 
+                 <trim  prefix="where" prefixOverrides="AND|OR">
+                        <if test="softwareName!=null||softwareName!=''" >
+                          AND softwareName like '%${softwareName}%'        
+                        </if>
+                        <if test="interfaceLanguage!=null||interfaceLanguage!=''">
+                        AND  interfaceLanguage like '%${interfaceLanguage}%'
+                </if>
+                 LIMIT #{currentPageNo},#{pageSize} 
+                 
+                 </trim>
+       </select>
+       <select id="findAppNum" resultType="java.lang.Integer">
+                SELECT count(*) FROM app_info 
+                       <trim  prefix="where" prefixOverrides="AND|OR">
+                        <if test="softwareName!=null||softwareName!=''" >
+                          AND softwareName like '%${softwareName}%'   
+                        </if>
+                        <if test="interfaceLanguage!=null||interfaceLanguage!=''">
+                        AND  interfaceLanguage like '%${interfaceLanguage}%'
+                </if>
+                </trim>
        </select>
        <select id="deleteAppById" resultType="java.lang.Integer">
         

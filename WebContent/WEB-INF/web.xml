@@ -42,6 +42,8 @@
 	   </filter-mapping>
 	<!-- spring字符编码过滤器end-->
 	
+	
+	
 	<!-- Spring MVC配置 -->
 	<servlet>
 		<servlet-name>spring</servlet-name>

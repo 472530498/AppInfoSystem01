@@ -24,11 +24,13 @@ public class AppInfoController {
 	public String selectappInfo(
 			@RequestParam(value = "currentPageNo", required = false, defaultValue = "1") Integer currentPageNo,
 			@RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize, 
+			@RequestParam(value = "softwareName", required = false, defaultValue = "")String softwareName,
+			@RequestParam(value = "interfaceLanguage", required = false, defaultValue = "")String interfaceLanguage,
 			Model model) {
-		PageSupport pagesupport = appInfoService.getAllApp(currentPageNo, pageSize);
+		PageSupport pagesupport = appInfoService.getAllApp(softwareName,interfaceLanguage,currentPageNo, pageSize);
 		pagesupport.setPageSize(pageSize);
 		pagesupport.setCurrentPageNo(currentPageNo);
-		pagesupport.setTotalCount(11);
+		pagesupport.setTotalCount(appInfoService.getAppNum(softwareName,interfaceLanguage));
 
 		model.addAttribute("pageSupport", pagesupport);
 		return "/dev/appinfo";
@@ -37,11 +39,13 @@ public class AppInfoController {
 	public String aselectappInfo(
 			@RequestParam(value = "currentPageNo", required = false) Integer currentPageNo,
 			@RequestParam(value = "pageSize", required = false) Integer pageSize,
+			@RequestParam(value = "softwareName", required = false,defaultValue = "")String softwareName,
+			@RequestParam(value = "interfaceLanguage", required = false,defaultValue = "")String interfaceLanguage,
 			Model model) {
-		PageSupport pagesupport = appInfoService.getAllApp(currentPageNo, pageSize);
+		PageSupport pagesupport = appInfoService.getAllApp(softwareName,interfaceLanguage,currentPageNo, pageSize);
 		pagesupport.setPageSize(pageSize);
 		pagesupport.setCurrentPageNo(currentPageNo);
-		pagesupport.setTotalCount(11);
+		pagesupport.setTotalCount(appInfoService.getAppNum(softwareName,interfaceLanguage));
 
 		model.addAttribute("pageSupport", pagesupport);
 		return "/dev/appinfo";
@@ -53,11 +57,13 @@ public class AppInfoController {
 			@RequestParam(value = "currentPageNo", required = false) Integer currentPageNo,
 			@RequestParam(value = "pageSize", required = false) Integer pageSize,
 			@RequestParam(value = "id", required = true) Integer id,
+			@RequestParam(value = "softwateName", required =false) String softwateName,
+			@RequestParam(value = "interfaceLanguage", required = false)String interfaceLanguage,
 			Model model) {
 			try{
 				PageSupport pagesupport=new PageSupport<AppInfo>();
 				appInfoService.deleteAppById(id);
-				pagesupport= appInfoService.getAllApp(currentPageNo, pageSize);
+				pagesupport= appInfoService.getAllApp(softwateName,interfaceLanguage,currentPageNo, pageSize);
 				pagesupport.setPageSize(2);
 				pagesupport.setCurrentPageNo(1);
 				pagesupport.setTotalCount(11);

@@ -6,7 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+ <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/statics/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/statics/css/public.css" />
 <!-- Bootstrap -->
 <link
 	href="${pageContext.request.contextPath }/statics/css/bootstrap.min.css"
@@ -35,33 +36,7 @@
 <link
 	href="${pageContext.request.contextPath }/statics/css/custom.min.css"
 	rel="stylesheet">
-<script language="javascript" type="text/javascript">
 
-	  
-	 function next()
-	 {
-		 /* var contextPath=${pageContext.request.contextPath }+"";  */
-	 		
-		 var list;
-	 		$.ajax({
-	             type: "GET",
-	             url: "/AppInfoSystem01/selectappInfo",
-	             data: {
-	            	 offset:3, 
-	            	 line:3,
-	             },
-	             dataType: "text",
-	             success: function(data){
-	            	 alert( data  );
-	             },
-	             error : function(res){
-	            	 	alert( "失败"  );
-	             }
-	         }).then(function name() {
-	        	 alert( "成功"  );
-			}); 
-	 }
-	 </script>
 </head>
 <body class="nav-md">
 	<div class="container body">
@@ -210,7 +185,7 @@
 			<!-- page content table-andy-->
 			<div class="right_col" role="main">
 
-             <%@include file="userlist.jsp" %>
+             <%@include file="applist.jsp" %>
 
 			</div>
 		</div>
