@@ -31,7 +31,7 @@ public class AppInfoController {
 		pagesupport.setPageSize(pageSize);
 		pagesupport.setCurrentPageNo(currentPageNo);
 		pagesupport.setTotalCount(appInfoService.getAppNum(softwareName,interfaceLanguage));
-
+    
 		model.addAttribute("pageSupport", pagesupport);
 		return "/dev/appinfo";
 	}
