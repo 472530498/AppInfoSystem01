@@ -33,4 +33,10 @@ public class AppInfoServiceImpl implements AppInfoService{
 		return appInfoMapper.deleteAppById(id);
 	}
 
+	@Override
+	public void setAppStatus(Integer id, Integer status) {
+		// TODO Auto-generated method stub
+		appInfoMapper.setAppStatus(id,status);
+	}
+
 }

@@ -9,4 +9,8 @@
         
                DELETE FROM app_info where id = #{id}
        </select>
+       <select id="setAppStatus" resultType="java.lang.Integer">
+        
+               update app_info set `status`=#{status} where id=#{id};
+       </select>
 </mapper>

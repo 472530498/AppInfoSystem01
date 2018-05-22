@@ -13,4 +13,6 @@ public interface AppInfoMapper {
 
 	public Integer deleteAppById(@Param("id") Integer id);
 
+	public void setAppStatus(@Param("id") Integer id,@Param("status") Integer status);
+
 }

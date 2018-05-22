@@ -73,4 +73,27 @@ public class AppInfoController {
 		
 		return "/dev/appinfo";
 	}
+	
+	@RequestMapping(value = "/setappstatus", method = RequestMethod.POST)
+	public String setappstatus(
+			@RequestParam(value = "id", required = true) Integer id,
+			@RequestParam(value = "status", required = false) Integer status,
+			@RequestParam(value = "currentPageNo", required = false) Integer currentPageNo,
+			@RequestParam(value = "pageSize", required = false) Integer pageSize,
+			Model model) {
+			try{
+				PageSupport pagesupport=new PageSupport<AppInfo>();
+				appInfoService.setAppStatus(id,status);
+				pagesupport= appInfoService.getAllApp(pageSize, currentPageNo);
+				//–¥À¿¡À
+				pagesupport.setPageSize(pageSize);
+				pagesupport.setCurrentPageNo(currentPageNo);
+				pagesupport.setTotalCount(11);
+				model.addAttribute("pageSupport", pagesupport);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+				return "/jsp/403.jsp";
+			}	
+			return "/dev/appinfo";
+	}
 }

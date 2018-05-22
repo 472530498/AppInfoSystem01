@@ -11,6 +11,8 @@ public interface AppInfoService {
 
 	public Integer deleteAppById(Integer id);
 
+	public void setAppStatus(Integer id, Integer status);
+
 
 
 }
