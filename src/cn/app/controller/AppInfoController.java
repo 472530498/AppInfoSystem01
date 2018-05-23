@@ -22,12 +22,13 @@ public class AppInfoController {
 	@Resource
 	private AppInfoService appInfoService;
 
-	@RequestMapping(value = "/selectappInfo", method = RequestMethod.GET)
+	@RequestMapping(value = "/selectappInfo/{name}", method = RequestMethod.GET)
 	public String selectappInfo(
 			@RequestParam(value = "currentPageNo", required = false, defaultValue = "1") Integer currentPageNo,
 			@RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize, 
 			@RequestParam(value = "softwareName", required = false, defaultValue = "")String softwareName,
 			@RequestParam(value = "interfaceLanguage", required = false, defaultValue = "")String interfaceLanguage,
+			@PathVariable(value = "name")String name,
 			Model model) {
 		PageSupport pagesupport = appInfoService.getAllApp(softwareName,interfaceLanguage,currentPageNo, pageSize);
 		pagesupport.setPageSize(pageSize);
@@ -35,7 +36,11 @@ public class AppInfoController {
 		pagesupport.setTotalCount(appInfoService.getAppNum(softwareName,interfaceLanguage));
     
 		model.addAttribute("pageSupport", pagesupport);
-		return "/dev/appinfo";
+		if(name!=""&&name!=null){
+			return  "/back/appinfo";
+			
+		}
+		else  return "/dev/appinfo";
 	}
 	@RequestMapping(value = "/selectappInfo", method = RequestMethod.POST)
 	public String aselectappInfo(
@@ -62,28 +67,19 @@ public class AppInfoController {
 		        return "redirect:/selectappInfo";
 	}
 	
-	@RequestMapping(value = "/setappstatus", method = RequestMethod.POST)
+	@RequestMapping(value = "/setappstatus",method = RequestMethod.POST)
 	public String setappstatus(
 			@RequestParam(value = "id", required = true) Integer id,
 			@RequestParam(value = "status", required = false) Integer status,
-			@RequestParam(value = "currentPageNo", required = false) Integer currentPageNo,
-			@RequestParam(value = "pageSize", required = false) Integer pageSize,
-			@RequestParam(value = "softwateName", required =false) String softwateName,
-			@RequestParam(value = "interfaceLanguage", required = false)String interfaceLanguage,
 			Model model) {
 			try{
-				PageSupport pagesupport=new PageSupport<AppInfo>();
-				appInfoService.setAppStatus(softwateName,interfaceLanguage,id,status);
-				pagesupport= appInfoService.getAllApp(softwateName,interfaceLanguage,pageSize, currentPageNo);
-				//д����
-				pagesupport.setPageSize(pageSize);
-				pagesupport.setCurrentPageNo(currentPageNo);
-				pagesupport.setTotalCount(11);
-				model.addAttribute("pageSupport", pagesupport);
+				
+				appInfoService.setAppStatus(id,status);
+				
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 				return "/jsp/403.jsp";
 			}	
-			return "/dev/appinfo";
+			return "redirect:/selectappInfo/admin";
 	}
 }

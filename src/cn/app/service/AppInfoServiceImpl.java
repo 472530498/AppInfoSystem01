@@ -42,7 +42,7 @@ public class AppInfoServiceImpl implements AppInfoService{
 		
 		return num;
 	}
-	public void setAppStatus(String softwareName,String interfaceLanguage,Integer id, Integer status) {
+	public void setAppStatus(Integer id, Integer status) {
 		// TODO Auto-generated method stub
 		appInfoMapper.setAppStatus(id,status);
 

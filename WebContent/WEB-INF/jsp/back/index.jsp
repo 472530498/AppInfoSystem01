@@ -41,7 +41,7 @@
               </div>
               <div class="profile_info">
                 <span>欢迎,</span>
-                <h2>${devuser.devName}</h2>
+                <h2>${admin.userName}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -55,7 +55,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> APP管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">审核</a></li>
+                      <li><a href="${pageContext.request.contextPath}/selectappInfo/${admin.userName}">审核</a></li>
                       <li><a href="addmessage.jsp">增加APP基础信息</a></li>
                       <li><a href="index3.html">修改APP基础信息</a></li>
                       <li><a href="index3.html">新增APP版本信息</a></li>
@@ -252,7 +252,6 @@
           [gd(2012, 1, 6), 85],
           [gd(2012, 1, 7), 7]
         ];
-
         var data2 = [
           [gd(2012, 1, 1), 82],
           [gd(2012, 1, 2), 23],
@@ -308,7 +307,6 @@
           },
           tooltip: false
         });
-
         function gd(year, month, day) {
           return new Date(year, month - 1, day).getTime();
         }
@@ -347,10 +345,8 @@
             "fog"
           ],
           i;
-
         for (i = list.length; i--;)
           icons.set(list[i], list[i]);
-
         icons.play();
       });
     </script>
@@ -363,7 +359,6 @@
           legend: false,
           responsive: false
         };
-
         new Chart(document.getElementById("canvas1"), {
           type: 'doughnut',
           tooltipFillColor: "rgba(51, 51, 51, 0.55)",
@@ -402,12 +397,10 @@
     <!-- bootstrap-daterangepicker -->
     <script>
       $(document).ready(function() {
-
         var cb = function(start, end, label) {
           console.log(start.toISOString(), end.toISOString(), label);
           $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         };
-
         var optionSet1 = {
           startDate: moment().subtract(29, 'days'),
           endDate: moment(),
@@ -492,7 +485,6 @@
       };
       var target = document.getElementById('foo'),
           gauge = new Gauge(target).setOptions(opts);
-
       gauge.maxValue = 6000;
       gauge.animationSpeed = 32;
       gauge.set(3200);

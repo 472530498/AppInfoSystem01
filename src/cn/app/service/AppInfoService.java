@@ -13,7 +13,7 @@ public interface AppInfoService {
 
     public Integer getAppNum(String softwareName,String interfaceLanguage);
 
-	public void setAppStatus(String softwareName,String interfaceLanguage,Integer id, Integer status);
+	public void setAppStatus(Integer id, Integer status);
 
 
 

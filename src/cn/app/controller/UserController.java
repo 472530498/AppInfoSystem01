@@ -18,7 +18,7 @@ import cn.app.service.UserService;
 @RequestMapping(value = "/user")
 public class UserController {
     
-	//用户业务类
+	//鐢ㄦ埛涓氬姟绫�
 	@Resource
 	public UserService userService;
 
@@ -36,7 +36,7 @@ public class UserController {
 	// return "/dev/index";
 	// }
 	
-    //开发用户登陆Action
+    //寮�鍙戠敤鎴风櫥闄咥ction
 	@RequestMapping(value = "/dologin", method = RequestMethod.POST)
 	public String dologin(@RequestParam("devCode") String devCode, @RequestParam("devPassword") String devPassword,
 			HttpSession session) {
@@ -46,15 +46,15 @@ public class UserController {
 
 		if (devuser != null) {
 			session.setAttribute("devuser", devuser);
-			return "/dev/index";  //用户存在跳转到主页面
+			return "/dev/index";  //鐢ㄦ埛瀛樺湪璺宠浆鍒颁富椤甸潰
 		} else
-			return "403";        //用户不存在
+			return "403";        //鐢ㄦ埛涓嶅瓨鍦�
 
 	}
 	
 	
 	
-	//管理员登陆Action
+	//绠＄悊鍛樼櫥闄咥ction
 	@RequestMapping(value = "/adminlogin",method=RequestMethod.POST)
 	public String adminlogin(@RequestParam("userCode") String userCode, @RequestParam("userPassword") String userPassword,
 			HttpSession session){
@@ -63,10 +63,10 @@ public class UserController {
 		
 		if(admin != null){
 			session.setAttribute("admin", admin);
-			return "/dev/index";   //管理登陆成功，跳转到管理员页面
+			return "/back/index";   //绠＄悊鐧婚檰鎴愬姛锛岃烦杞埌绠＄悊鍛橀〉闈�
 			
 		}else
-			return "403";          //管理员登陆失败
+			return "403";          //绠＄悊鍛樼櫥闄嗗け璐�
 	}
 	
 	
